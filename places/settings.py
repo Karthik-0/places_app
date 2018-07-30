@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'placesapp',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
