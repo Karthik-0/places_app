@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section class="my-3">
+    <div class="container">
+    {% for place in places %}
+       <div class="listbox py-3 px-3">
+        <strong>{{place.title}}</strong> | <small>{{place.city}}</small>
+       </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock content %}
+
+ {% for place in places %}
+            <li>{{place.title}}</li>
+              <li>{{place.location}}</li>
+                <li>{{place.desc}}</li>
+                  <li>{{place.address}}</li>
+                    <li>{{place.phone}}</li>
+                      <li>{{place.city}}</li>
+                        {% comment %} <li>{{place.tags}}</li> {% endcomment %}
+                          <li>{% for placetype in place.placetypes.all %}
+                            {{placetype.places}}
+                          {% endfor %}</li>
+        {% endfor %}
