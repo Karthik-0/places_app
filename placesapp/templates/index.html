@@ -12,16 +12,3 @@
     </div>
 </section>
 {% endblock content %}
-
- {% for place in places %}
-            <li>{{place.title}}</li>
-              <li>{{place.location}}</li>
-                <li>{{place.desc}}</li>
-                  <li>{{place.address}}</li>
-                    <li>{{place.phone}}</li>
-                      <li>{{place.city}}</li>
-                        {% comment %} <li>{{place.tags}}</li> {% endcomment %}
-                          <li>{% for placetype in place.placetypes.all %}
-                            {{placetype.places}}
-                          {% endfor %}</li>
-        {% endfor %}
