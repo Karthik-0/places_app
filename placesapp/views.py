@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views import generic
+from .models import Place
 
-# Create your views here.
+
+class PlaceList(generic.ListView):
+    template_name = 'index.html'
+    model = Place
+    context_object_name = 'places'
