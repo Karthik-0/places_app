@@ -3,18 +3,21 @@ from taggit.managers import TaggableManager
 
 
 class PlaceType(models.Model):
-    place = models.CharField(max_length=30)
+    places = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.title
+        return self.places
 
 
 class Place(models.Model):
     title = models.CharField(max_length=50)
     location = models.PointField()
     desc = models.TextField()
-    address = models.CharField(max_lenght=200)
+    address = models.CharField(max_length=200)
     phone = models.IntegerField()
     city = models.CharField(max_length=50)
     tags = TaggableManager()
-    places = models.ManyToManyField("PlaceType")
+    placetypes = models.ManyToManyField("PlaceType")
+
+    def __str__(self):
+        return self.title
