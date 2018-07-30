@@ -1,5 +1,6 @@
 from django.views import generic
 from .models import Place
+from . import forms
 
 
 class PlaceList(generic.ListView):
@@ -17,3 +18,11 @@ class PlaceDetail(generic.DetailView):
         obj = super(PlaceDetail, self).get_object(queryset=queryset)
         print(obj.location.coords)
         return obj
+
+
+class PlaceCreate(generic.CreateView):
+    template_name = 'add.html'
+    model = Place
+    success_url = '/places'
+    # fields = ['title','desc','location']
+    form_class = forms.PlaceForm
